@@ -21,6 +21,11 @@ But other directory layout is different inside and outside. One needs to be caut
 Note that this script can be used inside submission scripts, but it is not possible to submit from inside of it.
 I would just prefix all OSA-specific commands with `isdc-singularity`.
 
+First specify the location of shared scratch where archive and images are (example for yggdrasil):
+```bash
+export SHARED_SCRATCH=/srv/beegfs/scratch/shares/astro/integral/
+```
+
 Examples:
 
 ```bash
