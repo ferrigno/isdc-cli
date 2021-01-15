@@ -13,7 +13,7 @@ echo -e "\033[31msingularity-osa with command: \"$@\"\033[0m"
 cd $(realpath $PWD)
 
 source $HOME/.bash_profile
-source $HOME/env/init.sh
+#source $HOME/env/init.sh
 
 IMAGE=$SHARED_SCRATCH/singularity/integral-pack-0.1.sif
 
@@ -33,15 +33,15 @@ fi
 
 singularity exec \
         -B /srv:/srv \
-        -B $SHARED_SCRATCH/data/scw:$PWD/scw \
-        -B $SHARED_SCRATCH/data/aux:$PWD/aux \
-        -B $SHARED_SCRATCH/data/ic:$PWD/ic \
-        -B $SHARED_SCRATCH/data/idx:$PWD/idx \
-        -B $SHARED_SCRATCH/data/cat:/isdc/arc/rev_3/cat \
-        -B $SHARED_SCRATCH/data/scw:/isdc/arc/rev_3/scw \
-        -B $SHARED_SCRATCH/data/aux:/isdc/arc/rev_3/aux \
-        -B $SHARED_SCRATCH/data/ic:/isdc/arc/rev_3/ic \
-	-B $SHARED_SCRATCH/data/idx:/isdc/arc/rev_3/idx \
+        -B $SHARED_SCRATCH/data/rev_3/scw:$PWD/scw \
+        -B $SHARED_SCRATCH/data/rev_3/aux:$PWD/aux \
+        -B $SHARED_SCRATCH/data/rev_3/ic:$PWD/ic \
+        -B $SHARED_SCRATCH/data/rev_3/idx:$PWD/idx \
+        -B $SHARED_SCRATCH/data/rev_3/cat:/isdc/arc/rev_3/cat \
+        -B $SHARED_SCRATCH/data/rev_3/scw:/isdc/arc/rev_3/scw \
+        -B $SHARED_SCRATCH/data/rev_3/aux:/isdc/arc/rev_3/aux \
+        -B $SHARED_SCRATCH/data/rev_3/ic:/isdc/arc/rev_3/ic \
+	-B $SHARED_SCRATCH/data/rev_3/idx:/isdc/arc/rev_3/idx \
         $IMAGE \
         bash -c "source $HOME/.bash_profile; export HOME_OVERRRIDE=$HOME; echo -n loading\ env...; source /init${init_suffix}.sh; echo done; $cmd"
 
