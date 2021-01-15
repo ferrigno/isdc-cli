@@ -40,7 +40,8 @@ singularity exec \
         -B $SHARED_SCRATCH/data/cat:/isdc/arc/rev_3/cat \
         -B $SHARED_SCRATCH/data/scw:/isdc/arc/rev_3/scw \
         -B $SHARED_SCRATCH/data/aux:/isdc/arc/rev_3/aux \
-        -B $SHARED_SCRATCH/data/ic:/isdc/arc/rev_3/ic\
+        -B $SHARED_SCRATCH/data/ic:/isdc/arc/rev_3/ic \
+	-B $SHARED_SCRATCH/data/idx:/isdc/arc/rev_3/idx\
         $IMAGE \
         bash -c "source $HOME/.bash_profile; export HOME_OVERRRIDE=$HOME; echo -n loading\ env...; source /init${init_suffix}.sh; echo done; $cmd"
 
